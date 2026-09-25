@@ -195,7 +195,7 @@ svg { display: block; }
   transition: opacity .25s ease, stroke .25s ease, stroke-width .25s ease;
 }
 .connector-path.main { stroke-width: 3.2; opacity: .9; }
-.connector-path.cross { stroke-dasharray: 7 7; opacity: .48; }
+.connector-path.cross { stroke-dasharray: 7 7; opacity: .34; }
 .connector-path.load { stroke: rgba(214,104,42,.70); }
 .connector-path.derived { stroke: rgba(8,120,113,.67); }
 .connector-path.dme { stroke: rgba(73,53,159,.65); }

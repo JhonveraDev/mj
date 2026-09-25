@@ -127,26 +127,18 @@
   function makePath(from, to, type) {
     const start = getNodePoint(from, 'bottom');
     const end = getNodePoint(to, 'top');
-    const sameRow = Math.abs(end.y - start.y) < 80;
+    const deltaX = Math.abs(end.x - start.x);
+    const deltaY = Math.abs(end.y - start.y);
 
-    if (sameRow) {
-      const fromRect = from.getBoundingClientRect();
-      const toRect = to.getBoundingClientRect();
-      const contentRect = content.getBoundingClientRect();
-      const scale = state.scale || 1;
-      const leftToRight = fromRect.left < toRect.left;
-      const sx = ((leftToRight ? fromRect.right : fromRect.left) - contentRect.left) / scale;
-      const sy = (fromRect.top - contentRect.top + fromRect.height / 2) / scale;
-      const ex = ((leftToRight ? toRect.left : toRect.right) - contentRect.left) / scale;
-      const ey = (toRect.top - contentRect.top + toRect.height / 2) / scale;
-      const bend = Math.max(45, Math.abs(ex - sx) * .42);
-      const c1 = sx + (leftToRight ? bend : -bend);
-      const c2 = ex - (leftToRight ? bend : -bend);
-      return `M ${sx} ${sy} C ${c1} ${sy}, ${c2} ${ey}, ${ex} ${ey}`;
-    }
+    // Las relaciones transversales se leen mejor como un único trazo directo.
+    if (type.includes('cross')) return `M ${start.x} ${start.y} L ${end.x} ${end.y}`;
 
-    const dy = Math.max(42, Math.abs(end.y - start.y) * .42);
-    return `M ${start.x} ${start.y} C ${start.x} ${start.y + dy}, ${end.x} ${end.y - dy}, ${end.x} ${end.y}`;
+    // Los nodos alineados conservan una relación vertical clara y sin adornos.
+    if (deltaX < 24) return `M ${start.x} ${start.y} L ${end.x} ${end.y}`;
+
+    // Cuando dos columnas deben relacionarse, se usa una ruta ortogonal con un solo desvío.
+    const elbowY = start.y + Math.max(30, Math.min(96, deltaY * .46));
+    return `M ${start.x} ${start.y} L ${start.x} ${elbowY} L ${end.x} ${elbowY} L ${end.x} ${end.y}`;
   }
 
   function drawConnections() {
