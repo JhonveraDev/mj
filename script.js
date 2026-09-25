@@ -46,39 +46,54 @@
   }
 
   const connections = [
-    { from: 'root', to: 'branch-load', type: 'main load' },
-    { from: 'root', to: 'branch-derived', type: 'main derived' },
-    { from: 'root', to: 'branch-dme', type: 'main dme' },
+    { from: 'root', to: 'branch-load', type: 'main load', label: 'se expresa como' },
+    { from: 'root', to: 'branch-estimation', type: 'main estimation', label: 'se estima mediante' },
+    { from: 'root', to: 'branch-derived', type: 'main derived', label: 'implica' },
+    { from: 'root', to: 'branch-dme', type: 'main dme', label: 'puede generar' },
+    { from: 'root', to: 'branch-application', type: 'main application', label: 'se aplica en' },
 
-    { from: 'branch-load', to: 'load-definition', type: 'load' },
-    { from: 'branch-load', to: 'load-types', type: 'load' },
-    { from: 'load-types', to: 'static-load', type: 'load' },
-    { from: 'load-types', to: 'dynamic-load', type: 'load' },
-    { from: 'branch-load', to: 'load-estimation', type: 'load' },
-    { from: 'load-estimation', to: 'heart-rate', type: 'load' },
-    { from: 'load-estimation', to: 'metabolic', type: 'load' },
-    { from: 'heart-rate', to: 'frimat', type: 'load' },
-    { from: 'heart-rate', to: 'chamoux', type: 'load' },
+    { from: 'branch-load', to: 'load-definition', type: 'load', label: 'integra' },
+    { from: 'branch-load', to: 'load-types', type: 'load', label: 'se clasifica en' },
+    { from: 'load-types', to: 'static-load', type: 'load', label: 'puede ser' },
+    { from: 'load-types', to: 'dynamic-load', type: 'load', label: 'o bien' },
 
-    { from: 'branch-derived', to: 'posture', type: 'derived' },
-    { from: 'branch-derived', to: 'forces', type: 'derived' },
-    { from: 'branch-derived', to: 'movements', type: 'derived' },
-    { from: 'branch-derived', to: 'derived-prevention', type: 'derived' },
+    { from: 'branch-estimation', to: 'load-estimation', type: 'estimation', label: 'se realiza con' },
+    { from: 'load-estimation', to: 'heart-rate', type: 'estimation', label: 'registra' },
+    { from: 'load-estimation', to: 'metabolic', type: 'estimation', label: 'cuantifica' },
+    { from: 'heart-rate', to: 'frimat', type: 'estimation', label: 'se interpreta con' },
+    { from: 'heart-rate', to: 'chamoux', type: 'estimation', label: 'o con' },
+    { from: 'load-estimation', to: 'method-complementarity', type: 'estimation', label: 'se complementa según' },
 
-    { from: 'branch-dme', to: 'dme-definition', type: 'dme' },
-    { from: 'branch-dme', to: 'dme-factors', type: 'dme' },
-    { from: 'branch-dme', to: 'dme-types', type: 'dme' },
-    { from: 'branch-dme', to: 'dme-prevention', type: 'dme' },
-    { from: 'branch-dme', to: 'dme-norms', type: 'dme' },
+    { from: 'branch-derived', to: 'posture', type: 'derived', label: 'se manifiesta en' },
+    { from: 'branch-derived', to: 'forces', type: 'derived', label: 'demanda' },
+    { from: 'branch-derived', to: 'movements', type: 'derived', label: 'incluye' },
+    { from: 'branch-derived', to: 'derived-prevention', type: 'derived', label: 'se controla con' },
 
-    { from: 'branch-load', to: 'integration', type: 'cross load' },
-    { from: 'branch-derived', to: 'integration', type: 'cross derived' },
-    { from: 'branch-dme', to: 'integration', type: 'cross dme' },
+    { from: 'branch-dme', to: 'dme-definition', type: 'dme', label: 'se explica como' },
+    { from: 'branch-dme', to: 'dme-factors', type: 'dme', label: 'aumenta por' },
+    { from: 'branch-dme', to: 'dme-types', type: 'dme', label: 'se manifiesta en' },
+    { from: 'branch-dme', to: 'dme-prevention', type: 'dme', label: 'se previene al' },
+    { from: 'branch-dme', to: 'dme-norms', type: 'dme', label: 'se gestiona con' },
 
-    { from: 'static-load', to: 'posture', type: 'cross' },
-    { from: 'posture', to: 'dme-definition', type: 'cross' },
-    { from: 'forces', to: 'dme-definition', type: 'cross' },
-    { from: 'movements', to: 'dme-definition', type: 'cross' }
+    { from: 'branch-application', to: 'job-observation', type: 'application', label: 'comienza por' },
+    { from: 'job-observation', to: 'application-demand', type: 'application', label: 'permite identificar' },
+    { from: 'job-observation', to: 'application-method', type: 'application', label: 'orienta' },
+    { from: 'application-demand', to: 'application-dme', type: 'application', label: 'puede asociarse a' },
+    { from: 'application-method', to: 'application-control', type: 'application', label: 'sustenta' },
+    { from: 'application-control', to: 'application-example', type: 'application', label: 'se ejemplifica en' },
+
+    { from: 'branch-load', to: 'integration', type: 'cross load', label: 'aporta' },
+    { from: 'branch-estimation', to: 'integration', type: 'cross estimation', label: 'aporta evidencia' },
+    { from: 'branch-derived', to: 'integration', type: 'cross derived', label: 'modula' },
+    { from: 'branch-dme', to: 'integration', type: 'cross dme', label: 'resume el riesgo' },
+    { from: 'branch-application', to: 'integration', type: 'cross application', label: 'verifica en campo' },
+
+    { from: 'static-load', to: 'posture', type: 'cross load', label: 'se agrava con' },
+    { from: 'metabolic', to: 'dme-definition', type: 'cross estimation', label: 'puede contribuir a' },
+    { from: 'posture', to: 'dme-definition', type: 'cross derived', label: 'puede generar' },
+    { from: 'forces', to: 'dme-definition', type: 'cross derived', label: 'puede exceder' },
+    { from: 'movements', to: 'dme-definition', type: 'cross derived', label: 'puede producir' },
+    { from: 'application-demand', to: 'dme-factors', type: 'cross application', label: 'contrasta con' }
   ];
 
   function applyTransform() {
@@ -150,6 +165,16 @@
       path.dataset.from = conn.from;
       path.dataset.to = conn.to;
       svg.appendChild(path);
+
+      if (conn.label) {
+        const point = path.getPointAtLength(path.getTotalLength() * .5);
+        const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        label.setAttribute('x', point.x);
+        label.setAttribute('y', point.y - 6);
+        label.setAttribute('class', `connector-label ${conn.type}`);
+        label.textContent = conn.label;
+        svg.appendChild(label);
+      }
     });
   }
 
@@ -349,6 +374,7 @@
     state.dragging = false;
     viewport?.classList.remove('is-dragging');
     try { viewport?.releasePointerCapture?.(event.pointerId); } catch (_) {}
+    if (state.dragMoved) setTimeout(() => { state.dragMoved = false; }, 0);
   };
   viewport?.addEventListener('pointerup', endDrag);
   viewport?.addEventListener('pointercancel', endDrag);
