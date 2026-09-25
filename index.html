@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Mapa conceptual interactivo de ergonomía física: carga física, posturas, fuerzas, movimientos y desórdenes musculoesqueléticos." />
+  <title>Mapa conceptual | Ergonomía Física</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#mapViewport">Ir al mapa conceptual</a>
+
+  <header class="topbar">
+    <div class="brand" aria-label="Mapa conceptual de Ergonomía Física">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M7 4a3 3 0 1 0 0 6h2v4H7a3 3 0 1 0 0 2h2v1a3 3 0 1 0 2 0v-1h2v1a3 3 0 1 0 2 0v-1h2a3 3 0 1 0 0-2h-2v-4h2a3 3 0 1 0 0-2h-2V7a3 3 0 1 0-2 0v1h-2V7a3 3 0 1 0-2 0v1H7a1 1 0 1 1 0-2Zm4 6h2v4h-2v-4Z"/></svg>
+      </span>
+      <span>
+        <strong>Ergonomía Física</strong>
+        <small>Mapa conceptual interactivo</small>
+      </span>
+    </div>
+
+    <div class="toolbar" aria-label="Controles del mapa">
+      <button class="tool-btn" id="expandAll" type="button" title="Expandir todas las ramas">
+        <span aria-hidden="true">＋</span><b>Expandir</b>
+      </button>
+      <button class="tool-btn" id="collapseAll" type="button" title="Contraer todas las ramas">
+        <span aria-hidden="true">−</span><b>Contraer</b>
+      </button>
+      <span class="tool-separator" aria-hidden="true"></span>
+      <button class="tool-btn icon-only desktop-control" id="zoomOut" type="button" aria-label="Alejar mapa">−</button>
+      <output id="zoomValue" class="zoom-value desktop-control" aria-live="polite">100%</output>
+      <button class="tool-btn icon-only desktop-control" id="zoomIn" type="button" aria-label="Acercar mapa">+</button>
+      <button class="tool-btn desktop-control" id="fitMap" type="button" title="Ajustar mapa al ancho disponible">
+        <span aria-hidden="true">⌗</span><b>Ajustar</b>
+      </button>
+      <button class="tool-btn" id="helpButton" type="button" aria-expanded="false" aria-controls="helpPanel">
+        <span aria-hidden="true">?</span><b>Cómo usar</b>
+      </button>
+    </div>
+  </header>
+
+  <aside class="help-panel" id="helpPanel" hidden>
+    <button class="help-close" id="helpClose" type="button" aria-label="Cerrar ayuda">×</button>
+    <strong>Explora el mapa</strong>
+    <p>Haz clic en una rama para enfocarla. Usa “ver más” para profundizar, expande o contrae grupos y, en computador, arrastra el fondo para desplazarte.</p>
+    <div class="help-legend">
+      <span><i class="legend-solid"></i> relación jerárquica</span>
+      <span><i class="legend-dashed"></i> relación transversal</span>
+    </div>
+  </aside>
+
+  <main class="map-page">
+    <section class="map-viewport" id="mapViewport" tabindex="0" aria-label="Lienzo del mapa conceptual">
+      <div class="map-content" id="mapContent">
+        <svg class="connector-layer" id="connectorLayer" aria-hidden="true"></svg>
+
+        <section class="root-zone" aria-labelledby="rootTitle">
+          <article class="concept-node root-node" id="root" data-node>
+            <span class="node-kicker">Tema central</span>
+            <div class="root-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 0 0-4 4v1H6a4 4 0 0 0-1 7.874V16a4 4 0 0 0 4 4h1.126A4.002 4.002 0 0 0 18 19v-.126A4.002 4.002 0 0 0 19 11h-1V9a4 4 0 0 0-4-4h-.126A4.002 4.002 0 0 0 12 2Zm-2 5V6a2 2 0 1 1 4 0v1h-4Zm-1 2h6a2 2 0 0 1 2 2v1h-2a3 3 0 0 0-3 3v3h-1a2 2 0 0 1-2-2V9Zm5 9v-3a1 1 0 0 1 1-1h2v2a2 2 0 0 1-2 2h-1Z"/></svg>
+            </div>
+            <h1 id="rootTitle">Ergonomía Física</h1>
+            <p>Estudia la relación entre las <strong>demandas físicas del trabajo</strong>, las capacidades de la persona y el diseño de la tarea para prevenir fatiga, sobrecarga y daño musculoesquelético.</p>
+            <div class="root-chips" aria-label="Ejes del mapa">
+              <span>Carga física</span><span>Postura</span><span>Fuerza</span><span>Movimiento</span><span>DME</span>
+            </div>
+          </article>
+          <p class="relation-caption">se comprende a través de</p>
+        </section>
+
+        <section class="branches" aria-label="Ramas principales del mapa">
+          <!-- RAMA 1 -->
+          <section class="branch branch-load" data-branch="load">
+            <article class="concept-node branch-node" id="branch-load" data-node tabindex="0">
+              <div class="branch-icon" aria-hidden="true">01</div>
+              <div>
+                <span class="node-kicker">Rama principal</span>
+                <h2>Carga física</h2>
+                <p>Requerimientos corporales y energéticos que la tarea impone durante la jornada.</p>
+              </div>
+              <div class="branch-actions">
+                <button class="focus-btn" type="button" data-focus="branch-load">Enfocar</button>
+                <button class="branch-toggle" type="button" data-toggle-branch="load" aria-expanded="true" aria-label="Contraer rama Carga física">⌃</button>
+              </div>
+            </article>
+
+            <div class="branch-body" id="body-load">
+              <article class="concept-node info-node" id="load-definition" data-node>
+                <span class="node-tag">Definición</span>
+                <h3>Carga física ≠ carga mental</h3>
+                <p>La <strong>carga física</strong> se relaciona con el trabajo muscular, postural y metabólico. La <strong>carga mental</strong> se asocia principalmente con atención, memoria, procesamiento de información y toma de decisiones.</p>
+                <button class="detail-toggle" type="button" aria-expanded="false">Ver diferencia completa</button>
+                <div class="node-detail" hidden>
+                  <div class="compare-grid">
+                    <div><b>Física</b><span>Posturas, desplazamientos, manipulación, fuerza, repetición y gasto energético.</span></div>
+                    <div><b>Mental</b><span>Cantidad y complejidad de información, vigilancia, precisión, tiempo disponible y responsabilidad.</span></div>
+                  </div>
+                  <p class="note">En una tarea real ambas pueden coexistir y potenciar la fatiga total.</p>
+                </div>
+              </article>
+
+              <article class="concept-node info-node split-parent" id="load-types" data-node>
+                <span class="node-tag">Trabajo muscular</span>
+                <h3>Puede ser estático o dinámico</h3>
+                <p>La diferencia depende de cómo se produce la contracción muscular y de la alternancia entre tensión y relajación.</p>
+              </article>
+
+              <div class="subgrid two-col">
+                <article class="concept-node mini-node" id="static-load" data-node>
+                  <span class="mini-symbol" aria-hidden="true">▮</span>
+                  <h4>Carga estática</h4>
+                  <p>Contracción muscular continua, con poca variación de la postura o del nivel de fuerza.</p>
+                  <ul>
+                    <li>Reduce el flujo sanguíneo local.</li>
+                    <li>Favorece acumulación de metabolitos y fatiga.</li>
+                    <li>Es crítica cuando la postura o el esfuerzo se mantienen.</li>
+                  </ul>
+                  <div class="example-pill"><b>Ejemplo:</b> sostener una herramienta sobre el hombro o permanecer inclinado.</div>
+                </article>
+
+                <article class="concept-node mini-node" id="dynamic-load" data-node>
+                  <span class="mini-symbol" aria-hidden="true">↔</span>
+                  <h4>Carga dinámica</h4>
+                  <p>Alterna contracción y relajación muscular; suele implicar movimiento y mayor gasto energético.</p>
+                  <ul>
+                    <li>Favorece la irrigación durante la actividad.</li>
+                    <li>Incluye desplazamientos, esfuerzos y manejo de cargas.</li>
+                    <li>Su intensidad depende de fuerza, ritmo, duración y recuperación.</li>
+                  </ul>
+                  <div class="example-pill"><b>Ejemplo:</b> caminar transportando cajas o empujar un carro.</div>
+                </article>
+              </div>
+
+              <article class="concept-node info-node" id="load-estimation" data-node>
+                <span class="node-tag">Estimación</span>
+                <h3>¿Cómo se valora la carga física?</h3>
+                <p>Puede estimarse mediante el <strong>gasto energético</strong>, el consumo de oxígeno o indicadores derivados de la <strong>frecuencia cardiaca</strong>.</p>
+                <div class="method-chips"><span>Observación + tablas</span><span>Consumo de O₂</span><span>Frecuencia cardiaca</span></div>
+              </article>
+
+              <div class="subgrid two-col">
+                <article class="concept-node mini-node" id="heart-rate" data-node>
+                  <span class="mini-symbol" aria-hidden="true">♥</span>
+                  <h4>Frecuencia cardiaca</h4>
+                  <p>Permite analizar la respuesta cardiovascular durante la tarea, especialmente en trabajo dinámico y con control de factores que alteran la FC.</p>
+                  <button class="detail-toggle" type="button" aria-expanded="false">Ver indicadores</button>
+                  <div class="node-detail" hidden>
+                    <div class="formula-list">
+                      <p><b>FCR</b> = frecuencia cardiaca de reposo.</p>
+                      <p><b>FCM</b> = frecuencia cardiaca media de trabajo.</p>
+                      <p><b>CCA</b> = FCM − FCR (costo cardiaco absoluto).</p>
+                      <p><b>CCR</b> = CCA / (FMT − FCR) (costo cardiaco relativo).</p>
+                      <p><b>FMT</b> ≈ 220 − edad, como estimación teórica tradicional.</p>
+                    </div>
+                    <p class="note">Temperatura, estrés, estado de salud, condición física y carga emocional pueden modificar la respuesta cardiaca.</p>
+                  </div>
+                </article>
+
+                <article class="concept-node mini-node" id="metabolic" data-node>
+                  <span class="mini-symbol" aria-hidden="true">⚡</span>
+                  <h4>Consumo metabólico</h4>
+                  <p>Representa la energía necesaria para realizar el trabajo. Puede estimarse descomponiendo la actividad en tareas y considerando postura, desplazamiento, esfuerzo y manipulación.</p>
+                  <button class="detail-toggle" type="button" aria-expanded="false">¿Qué se analiza?</button>
+                  <div class="node-detail" hidden>
+                    <ul>
+                      <li>Carga estática asociada a posturas.</li>
+                      <li>Desplazamientos horizontales o verticales.</li>
+                      <li>Esfuerzos de grupos musculares.</li>
+                      <li>Levantamiento, transporte y descenso de cargas.</li>
+                    </ul>
+                  </div>
+                </article>
+              </div>
+
+              <div class="subgrid two-col compact-methods">
+                <article class="concept-node micro-node" id="frimat" data-node>
+                  <span class="method-letter">F</span>
+                  <div><h4>Frimat</h4><p>Se utiliza para valorar <strong>fases cortas</strong> del ciclo de trabajo mediante variables cardiacas y coeficientes de penosidad.</p></div>
+                </article>
+                <article class="concept-node micro-node" id="chamoux" data-node>
+                  <span class="method-letter">C</span>
+                  <div><h4>Chamoux</h4><p>Se orienta a la valoración <strong>global de la jornada</strong>; tradicionalmente se aplica a jornadas completas de ocho horas.</p></div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <!-- RAMA 2 -->
+          <section class="branch branch-derived" data-branch="derived">
+            <article class="concept-node branch-node" id="branch-derived" data-node tabindex="0">
+              <div class="branch-icon" aria-hidden="true">02</div>
+              <div>
+                <span class="node-kicker">Rama principal</span>
+                <h2>Aspectos derivados de la carga física</h2>
+                <p>La exigencia biomecánica se expresa principalmente a través de postura, fuerza y movimiento.</p>
+              </div>
+              <div class="branch-actions">
+                <button class="focus-btn" type="button" data-focus="branch-derived">Enfocar</button>
+                <button class="branch-toggle" type="button" data-toggle-branch="derived" aria-expanded="true" aria-label="Contraer rama Aspectos derivados">⌃</button>
+              </div>
+            </article>
+
+            <div class="branch-body" id="body-derived">
+              <article class="concept-node info-node" id="posture" data-node>
+                <span class="node-tag">Postura</span>
+                <h3>Posición de los segmentos corporales</h3>
+                <p>La postura determina cómo se distribuyen las cargas sobre músculos, articulaciones y tejidos. El riesgo aumenta con ángulos alejados de la neutralidad, tiempo prolongado y falta de recuperación.</p>
+                <button class="detail-toggle" type="button" aria-expanded="false">Explorar tipos de postura</button>
+                <div class="node-detail posture-types" id="posture-types" hidden>
+                  <div><b>Mantenida</b><span>Se conserva una misma posición durante un periodo sin cambios suficientes para descargar los tejidos.</span><em>Ej.: sujetar piezas con el tronco inclinado.</em></div>
+                  <div><b>Prolongada</b><span>La persona permanece sentada, de pie o en una postura dominante durante gran parte de la tarea.</span><em>Ej.: trabajar de pie frente a una banda.</em></div>
+                  <div><b>Forzada</b><span>Alguna articulación se aleja de posiciones neutras: flexión, torsión, extensión o elevación importante.</span><em>Ej.: cuello girado y brazos elevados.</em></div>
+                  <div><b>Antigravitacional</b><span>Exige actividad muscular para sostener segmentos contra la gravedad, incluso sin carga externa.</span><em>Ej.: mantener brazos extendidos al frente.</em></div>
+                </div>
+              </article>
+
+              <article class="concept-node info-node" id="forces" data-node>
+                <span class="node-tag">Fuerzas y esfuerzos</span>
+                <h3>Demanda de tensión muscular</h3>
+                <p>El requerimiento de fuerza debe compararse con la capacidad de la persona, la postura, la frecuencia, el tiempo de aplicación y el método utilizado.</p>
+                <button class="detail-toggle" type="button" aria-expanded="false">Ver requerimientos de fuerza</button>
+                <div class="node-detail" id="force-types" hidden>
+                  <ul class="risk-list">
+                    <li><b>Superan la capacidad individual:</b> el esfuerzo exigido rebasa la capacidad funcional disponible.</li>
+                    <li><b>Asociadas a cargas estáticas altas:</b> fuerza sostenida sin relajación suficiente.</li>
+                    <li><b>Asociadas a cargas dinámicas altas:</b> levantar, empujar, halar o transportar de forma intensa o frecuente.</li>
+                    <li><b>Asociadas a métodos incorrectos:</b> palancas desfavorables, agarres deficientes, carga alejada del cuerpo o técnica inadecuada.</li>
+                  </ul>
+                  <div class="example-pill"><b>Ejemplo:</b> levantar una caja desde el piso con el tronco flexionado y la carga lejos del cuerpo aumenta la demanda lumbar.</div>
+                </div>
+              </article>
+
+              <article class="concept-node info-node" id="movements" data-node>
+                <span class="node-tag">Movimientos</span>
+                <h3>Frecuencia + amplitud + repetición</h3>
+                <p>Los movimientos se vuelven críticos cuando se repiten con alta frecuencia, exigen rangos articulares extremos, incorporan fuerza o no dejan tiempo suficiente de recuperación.</p>
+                <button class="detail-toggle" type="button" aria-expanded="false">Ver requerimientos de movimiento</button>
+                <div class="node-detail" id="movement-types" hidden>
+                  <ul class="risk-list">
+                    <li><b>Sobrecarga estática alta:</b> el movimiento termina en posiciones sostenidas o estabilizaciones prolongadas.</li>
+                    <li><b>Repetitividad:</b> ciclos o gestos similares ejecutados una y otra vez por el mismo grupo osteomuscular.</li>
+                    <li><b>Métodos incorrectos:</b> secuencias que obligan a torsiones, alcances excesivos o trayectorias poco eficientes.</li>
+                  </ul>
+                  <div class="example-pill"><b>Ejemplo:</b> atornillar cientos de piezas con desviación de muñeca combina repetición, postura y fuerza de agarre.</div>
+                </div>
+              </article>
+
+              <article class="concept-node mini-node prevention-node" id="derived-prevention" data-node>
+                <span class="mini-symbol" aria-hidden="true">✓</span>
+                <h4>Principio ergonómico</h4>
+                <p>No existe una única “postura perfecta”. Conviene diseñar el trabajo para permitir <strong>variación postural, ajuste, alternancia y recuperación</strong>.</p>
+              </article>
+            </div>
+          </section>
+
+          <!-- RAMA 3 -->
+          <section class="branch branch-dme" data-branch="dme">
+            <article class="concept-node branch-node" id="branch-dme" data-node tabindex="0">
+              <div class="branch-icon" aria-hidden="true">03</div>
+              <div>
+                <span class="node-kicker">Rama principal</span>
+                <h2>Desórdenes musculoesqueléticos</h2>
+                <p>Efectos sobre músculos, tendones, articulaciones, nervios y estructuras relacionadas.</p>
+              </div>
+              <div class="branch-actions">
+                <button class="focus-btn" type="button" data-focus="branch-dme">Enfocar</button>
+                <button class="branch-toggle" type="button" data-toggle-branch="dme" aria-expanded="true" aria-label="Contraer rama DME">⌃</button>
+              </div>
+            </article>
+
+            <div class="branch-body" id="body-dme">
+              <article class="concept-node info-node" id="dme-definition" data-node>
+                <span class="node-tag">Definición</span>
+                <h3>Daño de origen multifactorial</h3>
+                <p>Los DME comprenden alteraciones de músculos, tendones, ligamentos, articulaciones, nervios y estructuras de soporte. En el trabajo pueden relacionarse con exposición acumulada a factores biomecánicos y organizacionales.</p>
+                <div class="causal-chain" aria-label="Cadena causal simplificada">
+                  <span>Exposición</span><i>→</i><span>Fatiga</span><i>→</i><span>Molestia</span><i>→</i><strong>DME</strong>
+                </div>
+              </article>
+
+              <article class="concept-node info-node" id="dme-factors" data-node>
+                <span class="node-tag">Factores de riesgo</span>
+                <h3>El riesgo aumenta cuando se combinan</h3>
+                <div class="risk-cloud">
+                  <span>Posturas forzadas</span><span>Fuerza</span><span>Repetición</span><span>Duración</span><span>Vibración</span><span>Frío</span><span>Pocas pausas</span><span>Ritmo elevado</span>
+                </div>
+                <p class="note">La combinación de factores suele ser más relevante que analizar uno de manera aislada.</p>
+              </article>
+
+              <article class="concept-node info-node" id="dme-types" data-node>
+                <span class="node-tag">Tipos y ejemplos</span>
+                <h3>Manifestaciones frecuentes</h3>
+                <button class="detail-toggle" type="button" aria-expanded="false">Ver ejemplos por zona</button>
+                <div class="node-detail" hidden>
+                  <div class="body-zone-grid">
+                    <div><b>Cuello / hombro</b><span>Dolor cervical, hombro doloroso, alteraciones del manguito rotador.</span></div>
+                    <div><b>Codo / antebrazo</b><span>Epicondilitis medial o lateral.</span></div>
+                    <div><b>Muñeca / mano</b><span>Síndrome del túnel carpiano, enfermedad de De Quervain, tendinopatías.</span></div>
+                    <div><b>Espalda</b><span>Dolor lumbar inespecífico y enfermedad discal asociada a factores de riesgo laborales.</span></div>
+                  </div>
+                  <p class="note">Síntomas de alerta: dolor, rigidez, hormigueo, pérdida de fuerza, adormecimiento, fatiga localizada o limitación del movimiento.</p>
+                </div>
+              </article>
+
+              <article class="concept-node info-node" id="dme-prevention" data-node>
+                <span class="node-tag">Prevención</span>
+                <h3>Controlar la exposición, no solo el síntoma</h3>
+                <div class="control-ladder">
+                  <div><b>1</b><span><strong>Diseño / ingeniería</strong> Ajustar alturas, alcances, herramientas, ayudas mecánicas y distribución.</span></div>
+                  <div><b>2</b><span><strong>Organización</strong> Alternar tareas, gestionar ritmo y duración, introducir recuperación suficiente.</span></div>
+                  <div><b>3</b><span><strong>Prácticas de trabajo</strong> Mejorar técnicas de manipulación, agarre y secuencia; capacitar.</span></div>
+                  <div><b>4</b><span><strong>Vigilancia</strong> Detectar síntomas tempranos y verificar si los controles están funcionando.</span></div>
+                </div>
+              </article>
+
+              <article class="concept-node info-node legal-node" id="dme-norms" data-node>
+                <span class="node-tag">Normativa y referencia técnica</span>
+                <h3>Colombia + criterios técnicos</h3>
+                <button class="detail-toggle" type="button" aria-expanded="false">Abrir referencias</button>
+                <div class="node-detail" hidden>
+                  <ul class="source-list">
+                    <li><a href="https://www.suin-juriscol.gov.co/viewDocument.asp?id=30050182" target="_blank" rel="noreferrer"><b>Resolución 2844 de 2007</b></a><span>Adopta GATISO basadas en evidencia, incluyendo DME por movimientos repetitivos de miembro superior, dolor lumbar/enfermedad discal y hombro doloroso.</span></li>
+                    <li><a href="https://relatoria.colombiacompra.gov.co/normativa/decreto-1072-de-2015/" target="_blank" rel="noreferrer"><b>Decreto 1072 de 2015</b></a><span>El SG-SST exige identificar peligros, evaluar riesgos y establecer controles; contempla factores ergonómicos o biomecánicos.</span></li>
+                    <li><a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=58849" target="_blank" rel="noreferrer"><b>Decreto 1477 de 2014</b></a><span>Expide la Tabla de Enfermedades Laborales y establece criterios para la relación causal con factores de riesgo ocupacional.</span></li>
+                    <li><a href="https://www.iso.org/standard/25573.html" target="_blank" rel="noreferrer"><b>ISO 11226:2000</b></a><span>Referencia para evaluación ergonómica de posturas de trabajo estáticas, considerando ángulos corporales y tiempo.</span></li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+          </section>
+        </section>
+
+        <section class="integration-zone" aria-labelledby="integrationTitle">
+          <article class="concept-node integration-node" id="integration" data-node>
+            <span class="node-kicker">Integración del mapa</span>
+            <h2 id="integrationTitle">La exposición se construye por combinación</h2>
+            <div class="integration-equation" aria-label="Relación entre factores">
+              <span class="eq-load">Carga física</span><b>+</b><span class="eq-derived">Postura · fuerza · movimiento</span><b>+</b><span>Tiempo y recuperación</span><b>→</b><strong class="eq-dme">Riesgo de DME</strong>
+            </div>
+            <p>Una evaluación ergonómica útil debe considerar <strong>qué exige la tarea, durante cuánto tiempo, con qué intensidad, en qué postura y con qué posibilidad de recuperación</strong>.</p>
+          </article>
+        </section>
+
+        <section class="study-zone" aria-label="Orientación académica y fuentes">
+          <article class="concept-node study-note" id="study-note" data-node>
+            <span class="node-tag">Orientación de la actividad</span>
+            <h3>Alcance de esta temática</h3>
+            <p>El contenido central para estudiar y exponer aquí es <strong>carga física, aspectos derivados y DME</strong>. El método específico de evaluación ergonómica asignado por sorteo corresponde a una actividad complementaria y debe desarrollarse según los parámetros indicados en la tutoría.</p>
+          </article>
+
+          <article class="concept-node sources-node" id="sources" data-node>
+            <span class="node-tag">Fuentes académicas</span>
+            <h3>Base técnica utilizada para ampliar el mapa</h3>
+            <ol>
+              <li><a href="https://www.insst.es/InshtWeb/Contenidos/Documentacion/FichasTecnicas/NTP/Ficheros/101a200/ntp_177.pdf" target="_blank" rel="noreferrer">INSST · NTP 177: carga física de trabajo</a></li>
+              <li><a href="https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/8-serie-ntp-numeros-261-a-295-ano-1992/ntp-295-valoracion-de-la-carga-fisica-mediante-la-monitorizacion-de-la-frecuencia-cardiaca" target="_blank" rel="noreferrer">INSST · NTP 295: frecuencia cardiaca, Frimat y Chamoux</a></li>
+              <li><a href="https://www.insst.es/materias/riesgos/riesgos-ergonomicos/trabajos-repetitivos" target="_blank" rel="noreferrer">INSST · Trabajos repetitivos y TME</a></li>
+              <li><a href="https://www.iso.org/standard/25573.html" target="_blank" rel="noreferrer">ISO 11226: evaluación de posturas estáticas</a></li>
+              <li><a href="https://www.suin-juriscol.gov.co/viewDocument.asp?id=30050182" target="_blank" rel="noreferrer">Colombia · Resolución 2844 de 2007</a></li>
+            </ol>
+            <p class="source-caveat">Material de estudio. La valoración real de un puesto requiere observación, medición y criterio profesional conforme al contexto.</p>
+          </article>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <div class="mobile-tip" aria-hidden="true">Toca “ver más” para profundizar cada concepto.</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
