@@ -204,20 +204,28 @@ svg { display: block; }
 .connector-path.cross.active { opacity: .95; stroke-width: 3; }
 .connector-label {
   fill: #5f7188;
-  stroke: var(--paper);
-  stroke-width: 5px;
-  paint-order: stroke;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 850;
   letter-spacing: .01em;
   text-anchor: middle;
   pointer-events: none;
+}
+.connector-label-bg {
+  fill: rgba(255,255,255,.96);
+  stroke: #d4e0eb;
+  stroke-width: 1px;
+  filter: drop-shadow(0 2px 3px rgba(31,55,83,.12));
 }
 .connector-label.load { fill: #a64d1c; }
 .connector-label.estimation { fill: #a92e55; }
 .connector-label.derived { fill: #087871; }
 .connector-label.dme { fill: #49359f; }
 .connector-label.application { fill: #0c649e; }
+.connector-label-bg.load { fill: #fff8f2; stroke: #f3c8a8; }
+.connector-label-bg.estimation { fill: #fff3f6; stroke: #edc2cf; }
+.connector-label-bg.derived { fill: #effbf9; stroke: #bee7e1; }
+.connector-label-bg.dme { fill: #f5f3ff; stroke: #d9d0fa; }
+.connector-label-bg.application { fill: #eef9ff; stroke: #c8e5f5; }
 
 .focus-question, .root-zone, .branches, .integration-zone, .study-zone { position: relative; z-index: 2; }
 .focus-question {
@@ -637,7 +645,6 @@ svg { display: block; }
 .map-content.has-focus .branch:not(.is-focused) { opacity: .38; filter: saturate(.55); }
 .map-content.has-focus .focus-question, .map-content.has-focus .root-zone, .map-content.has-focus .integration-zone, .map-content.has-focus .study-zone { opacity: .55; }
 .map-content.has-focus .connector-path { opacity: .18; }
-.map-content.has-focus .connector-label { opacity: .18; }
 
 .mobile-tip { display: none; }
 

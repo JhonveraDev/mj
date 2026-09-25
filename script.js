@@ -169,16 +169,6 @@
       path.dataset.from = conn.from;
       path.dataset.to = conn.to;
       svg.appendChild(path);
-
-      if (conn.label) {
-        const point = path.getPointAtLength(path.getTotalLength() * .5);
-        const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-        label.setAttribute('x', point.x);
-        label.setAttribute('y', point.y - 6);
-        label.setAttribute('class', `connector-label ${conn.type}`);
-        label.textContent = conn.label;
-        svg.appendChild(label);
-      }
     });
   }
 
