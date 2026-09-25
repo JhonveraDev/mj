@@ -524,6 +524,16 @@ svg { display: block; }
   background: #eafaf8;
   border-color: #bfe9e4;
 }
+.workstation-node { background: linear-gradient(145deg, #ffffff, #f0fbfa); border-color: #d7eeeb; }
+.office-visual { display: grid; grid-template-columns: 180px 1fr; gap: 14px; align-items: center; margin-bottom: 13px; padding: 10px; border-radius: 13px; background: #effbf9; border: 1px solid #d4efeb; }
+.office-visual svg { width: 170px; height: 108px; margin: auto; fill: none; stroke: #087871; stroke-width: 3.3; stroke-linecap: round; stroke-linejoin: round; }
+.office-visual svg .office-guide { stroke: #e18436; stroke-dasharray: 5 5; }
+.office-visual span { color: #29766f; font-size: .68rem; font-weight: 750; }
+.station-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.station-grid > div { padding: 10px; border-radius: 11px; background: #f0fbfa; border: 1px solid #d7eeeb; }
+.station-grid b, .station-grid span { display: block; }
+.station-grid b { color: #087871; font-size: .70rem; }
+.station-grid span { margin-top: 3px; color: #627188; font-size: .66rem; }
 .method-reference { margin-top: 11px; padding: 10px; border: 1px solid #dce5ef; border-radius: 11px; background: #f6f9fc; }
 .method-reference b, .method-reference span { display: block; }
 .method-reference b { color: #334f70; font-size: .70rem; }
@@ -531,6 +541,12 @@ svg { display: block; }
 .risk-list { margin: 0; padding-left: 18px; color: #607187; font-size: .72rem; }
 .risk-list li + li { margin-top: 7px; }
 .prevention-node { background: linear-gradient(145deg, #ffffff, #f2fbfa); border-color: #d7eeeb; }
+.visual-node { background: linear-gradient(145deg, #fff, #f1f8ff); border-color: #d5e7f5; }
+.screen-checklist { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.screen-checklist > div { padding: 10px; border-radius: 11px; background: #eef8ff; border: 1px solid #d5e8f7; }
+.screen-checklist b, .screen-checklist span { display: block; }
+.screen-checklist b { color: #156394; font-size: .69rem; }
+.screen-checklist span { margin-top: 3px; color: #607187; font-size: .65rem; }
 
 .causal-chain { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 14px; }
 .causal-chain span, .causal-chain strong { padding: 6px 8px; border-radius: 9px; background: #f3f0ff; color: #5946a7; font-size: .66rem; font-weight: 800; }
@@ -696,7 +712,8 @@ svg { display: block; }
   .focus-btn { display: none; }
   .branch-body { gap: 13px; margin-top: 14px; }
   .info-node, .mini-node, .micro-node { padding: 18px; border-radius: 17px; }
-  .subgrid.two-col, .compare-grid, .posture-types, .body-zone-grid, .risk-triad { grid-template-columns: 1fr; }
+  .subgrid.two-col, .compare-grid, .posture-types, .body-zone-grid, .risk-triad, .station-grid, .screen-checklist { grid-template-columns: 1fr; }
+  .office-visual { grid-template-columns: 1fr; }
   .body-visual { grid-template-columns: 82px 1fr; }
   .integration-zone { margin-top: 34px; }
   .integration-node { width: 100%; padding: 24px 18px; text-align: left; }

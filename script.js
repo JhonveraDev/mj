@@ -65,8 +65,10 @@
     { from: 'load-estimation', to: 'method-complementarity', type: 'estimation', label: 'se complementa según' },
 
     { from: 'branch-derived', to: 'posture', type: 'derived', label: 'se manifiesta en' },
+    { from: 'branch-derived', to: 'workstation', type: 'derived', label: 'se apoya en' },
     { from: 'branch-derived', to: 'forces', type: 'derived', label: 'demanda' },
     { from: 'branch-derived', to: 'movements', type: 'derived', label: 'incluye' },
+    { from: 'branch-derived', to: 'visual-fatigue', type: 'derived', label: 'puede incluir' },
     { from: 'branch-derived', to: 'derived-prevention', type: 'derived', label: 'se controla con' },
 
     { from: 'branch-dme', to: 'dme-definition', type: 'dme', label: 'se explica como' },
@@ -89,11 +91,13 @@
     { from: 'branch-application', to: 'integration', type: 'cross application', label: 'verifica en campo' },
 
     { from: 'static-load', to: 'posture', type: 'cross load', label: 'se agrava con' },
+    { from: 'workstation', to: 'visual-fatigue', type: 'cross derived', label: 'condiciona' },
     { from: 'metabolic', to: 'dme-definition', type: 'cross estimation', label: 'puede contribuir a' },
     { from: 'posture', to: 'dme-definition', type: 'cross derived', label: 'puede generar' },
     { from: 'forces', to: 'dme-definition', type: 'cross derived', label: 'puede exceder' },
     { from: 'movements', to: 'dme-definition', type: 'cross derived', label: 'puede producir' },
-    { from: 'application-demand', to: 'dme-factors', type: 'cross application', label: 'contrasta con' }
+    { from: 'application-demand', to: 'dme-factors', type: 'cross application', label: 'contrasta con' },
+    { from: 'workstation', to: 'application-demand', type: 'cross application', label: 'se verifica en' }
   ];
 
   function applyTransform() {
